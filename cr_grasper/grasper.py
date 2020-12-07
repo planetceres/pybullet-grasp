@@ -6,6 +6,8 @@ Robotics Research, Fall 2018
 
 """
 
+import os
+import sys
 import pybullet as p
 from math import pi, sqrt
 import pybullet_data
@@ -18,6 +20,7 @@ from pyquaternion import Quaternion
 import numpy as np
 from scipy.spatial import ConvexHull, distance
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 
 
 #PYBULLET HOUSEKEEPING + GUI MAINTENANCE
@@ -35,10 +38,13 @@ p.resetDebugVisualizerCamera(cameraDistance=.5, cameraYaw=135, cameraPitch=-20, 
 
 #GLOBAL VARIABLES  - from config file
 config = ConfigParser()
-config.read('bh_config.ini')
+print(os.path.join(os.path.dirname(__file__), 'bh_config.ini'))
+config.read(os.path.join(os.path.dirname(__file__), 'bh_config.ini'))
 
 robot_path = config.get('file_paths', 'robot_path')
+robot_path = os.path.join(PROJECT_ROOT, robot_path)
 object_path = config.get('file_paths', 'object_path')
+object_path = os.path.join(PROJECT_ROOT, object_path)
 object_scale = config.getfloat('file_paths', 'object_scale')
 
 init_grasp_distance = config.getfloat('grasp_settings', 'init_grasp_distance')
