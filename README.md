@@ -1,6 +1,6 @@
 # Pybullet Grasp Simulation 
 
-Based on [Robot Graspit! Project][cr_grasper] ([MIT License][cr_grasper-lic])
+Based on [Robot Graspit! Project][cr_grasper] ([MIT License][cr_grasper-lic]). See [SOURCE.md][SOURCE.md] for original documentation.
 
 ### Installation
 
